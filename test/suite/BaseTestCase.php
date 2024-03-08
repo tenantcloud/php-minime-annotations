@@ -2,6 +2,7 @@
 
 namespace Minime\Annotations;
 
+use PHPUnit\Framework\TestCase;
 use \ReflectionProperty;
 use Minime\Annotations\Fixtures\AnnotationsFixture;
 
@@ -9,14 +10,14 @@ use Minime\Annotations\Fixtures\AnnotationsFixture;
  * BaseTest
  *
  */
-abstract class BaseTest extends \PHPUnit_Framework_TestCase
+abstract class BaseTestCase extends TestCase
 {
     protected $fixture;
 
     protected $parser;
 
-    public function setUp()
-    {
+    public function setUp(): void
+	{
         $this->fixture = new AnnotationsFixture;
     }
 

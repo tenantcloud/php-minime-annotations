@@ -12,8 +12,8 @@ use Minime\Annotations\Fixtures\AnnotationsFixture;
  */
 class ParserTest extends DynamicParserTest
 {
-    public function setUp()
-    {
+    public function setUp(): void
+	{
         parent::setup();
         $this->parser = new Parser;
     }
@@ -68,15 +68,16 @@ class ParserTest extends DynamicParserTest
 
     /**
      * @test
-     * @expectedException \Minime\Annotations\ParserException
      * @dataProvider invalidConcreteAnnotationFixtureProvider
      */
     public function parseInvalidConcreteFixture($fixture)
     {
+		$this->expectException(ParserException::class);
+
         $this->getFixture($fixture);
     }
 
-    public function invalidConcreteAnnotationFixtureProvider()
+    public static function invalidConcreteAnnotationFixtureProvider()
     {
       return [
         ['bad_concrete_fixture'],
@@ -135,28 +136,31 @@ class ParserTest extends DynamicParserTest
 
     /**
      * @test
-     * @expectedException \Minime\Annotations\ParserException
      */
     public function exceptionWithBadJsonValue()
     {
+		$this->expectException(ParserException::class);
+
         $this->getFixture('bad_json_fixture');
     }
 
     /**
      * @test
-     * @expectedException \Minime\Annotations\ParserException
      */
     public function exceptionWithBadIntegerValue()
     {
+		$this->expectException(ParserException::class);
+
         $this->getFixture('bad_integer_fixture');
     }
 
     /**
      * @test
-     * @expectedException \Minime\Annotations\ParserException
      */
     public function exceptionWithBadFloatValue()
     {
+		$this->expectException(ParserException::class);
+
         $this->getFixture('bad_float_fixture');
     }
 

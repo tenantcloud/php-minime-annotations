@@ -7,10 +7,10 @@ namespace Minime\Annotations;
  * 
  * @group parser
  */
-class DynamicParserTest extends BaseTest
+class DynamicParserTest extends BaseTestCase
 {
-    public function setUp()
-    {
+    public function setUp(): void
+	{
         parent::setup();
         $this->parser = new DynamicParser;
     }

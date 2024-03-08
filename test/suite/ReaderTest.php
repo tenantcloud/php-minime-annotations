@@ -2,13 +2,14 @@
 namespace Minime\Annotations;
 
 use Minime\Annotations\Fixtures\AnnotationsFixture;
+use PHPUnit\Framework\TestCase;
 
-class ReaderTest extends \PHPUnit_Framework_TestCase
+class ReaderTest extends TestCase
 {
     private $fixture;
 
-    public function setUp()
-    {
+    public function setUp(): void
+	{
         $this->fixture = new AnnotationsFixture;
     }
 
@@ -34,8 +35,8 @@ class ReaderTest extends \PHPUnit_Framework_TestCase
 
     public function testReadFunctionAnnotations()
     {
-        if(! function_exists($fn = __NAMESPACE__ . '\\fn')){
-            /** @bar */ function fn(){}
+        if(! function_exists($fn = __NAMESPACE__ . '\\fun')){
+            /** @bar */ function fun(){}
         }
 
         $this->assertTrue($this->getReader()->getFunctionAnnotations($fn)->get('bar'));

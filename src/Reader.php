@@ -125,7 +125,7 @@ class Reader implements ReaderInterface
      */
     public function getConstantAnnotations($class, $const)
     {
-        return $this->getAnnotations(new ReflectionConst($class, $const));
+        return $this->getAnnotations(new \ReflectionClassConstant($class, $const));
     }
 
     /**

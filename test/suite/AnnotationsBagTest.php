@@ -3,17 +3,18 @@
 namespace Minime\Annotations;
 
 use Minime\Annotations\Fixtures\AnnotationConstructInjection;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @group bag
  */
-class AnnotationsBagTest extends \PHPUnit_Framework_TestCase
+class AnnotationsBagTest extends TestCase
 {
 
     private $Bag;
 
-    public function setUp()
-    {
+    public function setUp(): void
+	{
         $this->Bag = new AnnotationsBag(
             [
                 'get' => true,
